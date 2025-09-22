@@ -1,0 +1,564 @@
+/* ===========================
+   Variables y tema (light/dark)
+   =========================== */
+
+/* Tema claro por defecto */
+:root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --fg: #111317;
+    --muted: #5c6370;
+    --primary: #6c5ce7;
+    --primary-2: #a78bfa;
+    --surface: #f5f7fb;
+    --border: #e5e7eb;
+    --ok: #10b981;
+    --warn: #f59e0b;
+    --err: #ef4444;
+    --radius: 16px;
+}
+
+/* Tema oscuro cuando <html data-theme="dark"> */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0b0d12;
+    --fg: #f5f7fb;
+    --muted: #9aa3b2;
+    --primary: #8b7cf6;
+    --primary-2: #c4b5fd;
+    --surface: #121521;
+    --border: #22283a;
+}
+
+/* Fallback: si NO hay preferencia guardada ni data-theme,
+   usa el esquema del sistema (se sobreescribe en JS al cargar). */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        color-scheme: dark;
+        --bg: #0b0d12;
+        --fg: #f5f7fb;
+        --muted: #9aa3b2;
+        --primary: #8b7cf6;
+        --primary-2: #c4b5fd;
+        --surface: #121521;
+        --border: #22283a;
+    }
+}
+
+/* ===========================
+   Reset básico / base
+   =========================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem);
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin: 0.4rem 0 0.2rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.lead {
+    font-size: 1.125rem;
+    color: var(--muted);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.tiny {
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+.section {
+    padding: 3.5rem 0;
+}
+
+.section.alt {
+    background: var(--surface);
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: .5rem .75rem;
+    background: var(--fg);
+    color: var(--bg);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+/* ===========================
+   Header / navegación
+   =========================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(180%) blur(8px);
+    background: color-mix(in oklab, var(--bg) 86%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 64px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.brand-mark {
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.brand-name {
+    font-weight: 700;
+    color: var(--fg);
+}
+
+.site-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: .75rem;
+}
+
+.site-nav a {
+    padding: .5rem .75rem;
+    border-radius: 10px;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    background: var(--surface);
+    text-decoration: none;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .4rem .6rem;
+    color: var(--fg);
+}
+
+/* ===========================
+   Hero
+   =========================== */
+
+.hero {
+    padding: 4rem 0 3rem;
+    background:
+        radial-gradient(1200px 600px at 100% -20%, color-mix(in oklab, var(--primary) 18%, transparent), transparent),
+        radial-gradient(1200px 600px at -10% 120%, color-mix(in oklab, var(--primary-2) 22%, transparent), transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-inner {
+    text-align: center;
+}
+
+.gradient {
+    background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-actions {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    margin: 1rem 0 0.5rem;
+}
+
+.note {
+    font-size: .95rem;
+    color: var(--muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .65rem .95rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--fg);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+}
+
+/* ===========================
+   Secciones / tarjetas / grid
+   =========================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+.timeline {
+    margin-top: 1.5rem;
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+}
+
+.timeline ol {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.timeline li {
+    margin: .6rem 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    align-items: start;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist li {
+    padding-left: 1.7rem;
+    position: relative;
+    margin: .45rem 0;
+}
+
+.checklist li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ok);
+}
+
+.callout {
+    background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 6%, transparent), transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.steps li {
+    display: grid;
+    grid-template-columns: 44px auto;
+    gap: .8rem;
+    align-items: start;
+    padding: .7rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.step {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-weight: 700;
+}
+
+.note-box {
+    margin-top: 1rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: .9rem;
+    border-radius: 12px;
+}
+
+.resources {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.resources article {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .9rem;
+}
+
+.resources ul {
+    margin: .5rem 0 0;
+    padding-left: 1rem;
+}
+
+/* ===========================
+   FAQ (acordeón)
+   =========================== */
+
+.accordion {
+    margin-top: .8rem;
+    border-top: 1px solid var(--border);
+}
+
+.accordion-item {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: .9rem 0;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-item:focus {
+    outline: 2px solid color-mix(in oklab, var(--primary) 40%, transparent);
+    border-radius: 8px;
+}
+
+.accordion-panel {
+    padding: .5rem 0 1rem;
+    color: var(--muted);
+}
+
+/* ===========================
+   Formulario
+   =========================== */
+
+.contact {
+    max-width: 640px;
+}
+
+.form-field {
+    margin-bottom: .9rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .35rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: .65rem .75rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid color-mix(in oklab, var(--primary) 35%, transparent);
+    border-color: var(--primary);
+}
+
+.error {
+    color: var(--err);
+    min-height: 1.1rem;
+    display: inline-block;
+}
+
+.form-status {
+    margin-top: .6rem;
+    min-height: 1.2rem;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+
+.site-footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-inner {
+    display: grid;
+    gap: .35rem;
+    text-align: center;
+}
+
+/* ===========================
+   Accesibilidad / utilidades
+   =========================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media (max-width: 860px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .resources {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 840px) {
+    .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    .site-nav {
+        position: fixed;
+        inset: 64px 0 auto 0;
+        background: var(--bg);
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-120%);
+        transition: transform .25s ease;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site-nav.open {
+        transform: translateY(0);
+    }
+
+    .site-nav ul {
+        flex-wrap: wrap;
+    }
+}
