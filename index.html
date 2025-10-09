@@ -53,8 +53,8 @@
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <span class="brand-mark" aria-hidden="true">●</span>
-                <a href="#inicio" class="brand-name">Ley Olimpia</a>
+                <span class="brand-mark" aria-hidden="true"></span>
+                <a href="#inicio" class="brand-name"><img src="./SRC/img/1.png" alt=""></a>
             </div>
 
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
@@ -251,6 +251,51 @@
             </div>
         </section>
 
+        <!-- NOVEDADES (NUEVO) -->
+        <section id="novedades" class="section">
+            <div class="container">
+                <h2>Novedades</h2>
+                <p class="lead">Actualizaciones del movimiento y avances normativos en la región.</p>
+
+                <!-- Tarjeta destacada: Aprobada en Colombia -->
+                <article class="news-card">
+                    <div class="news-media">
+                        <figure>
+                            <img src="./SRC/img/2.jpeg" alt="Aprobación en Colombia — Ley Olimpia"
+                                loading="lazy">
+                        </figure>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Aprobada en Colombia</h3>
+                        <p class="news-meta">Boletín | Fecha de publicación: <time datetime="2025-10-08">8 de octubre de
+                                2025</time></p>
+                        <p>
+                            Se informa la aprobación de reformas inspiradas en la Ley Olimpia en Colombia. Este avance
+                            fortalece el
+                            reconocimiento de la violencia digital como una forma de violencia de género, con medidas de
+                            prevención,
+                            atención y sanción.
+                        </p>
+
+                        <!-- Vista previa del boletín PDF -->
+                        <div class="pdf-viewer">
+                            <iframe src="./BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf" width="100%" height="420"
+                                style="border:1px solid #ccc; border-radius:8px;">
+                                Tu navegador no soporta la vista previa de PDF.
+                                <a href="./BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf">Descargar boletín</a>
+                            </iframe>
+                        </div>
+
+                        <div class="news-actions">
+                            <a class="btn btn-primary" href="./BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf" target="_blank" rel="noopener">📄
+                                Descargar boletín (PDF)</a>
+                            <a class="btn btn-secondary" href="#contacto">Contacto</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- FAQ -->
         <section id="faq" class="section">
             <div class="container">
@@ -287,30 +332,37 @@
             </div>
         </section>
 
-        <!-- CONTACTO -->
-        <section id="contacto" class="section alt">
+        <!-- DOCUMENTO -->
+        <section id="documento" class="section alt">
             <div class="container">
-                <h2>Contacto y acompañamiento</h2>
-                <form id="contactForm" class="contact" novalidate>
-                    <div class="form-field">
-                        <label for="nombre">Nombre</label>
-                        <input id="nombre" name="nombre" type="text" autocomplete="name" required>
-                        <small class="error" id="err-nombre" role="alert"></small>
-                    </div>
-                    <div class="form-field">
-                        <label for="email">Correo</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required>
-                        <small class="error" id="err-email" role="alert"></small>
-                    </div>
-                    <div class="form-field">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                        <small class="error" id="err-mensaje" role="alert"></small>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Enviar</button>
-                    <p class="form-note muted">No envíes información sensible. Este formulario es demostrativo.</p>
-                    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-                </form>
+                <h2>Documento completo</h2>
+                <p>Puedes consultar el documento en línea o descargarlo en formato PDF:</p>
+
+                <!-- Vista previa del PDF (documento principal) -->
+                <div class="pdf-viewer">
+                    <iframe src="./1 - NotaConceptual LeyOlimpia LATAM.pdf" width="100%" height="600px"
+                        style="border:1px solid #ccc; border-radius:8px;">
+                        Este navegador no soporta vista previa de PDF.
+                        <a href="./1 - NotaConceptual LeyOlimpia LATAM.pdf">Descargar PDF</a>
+                    </iframe>
+                </div>
+
+                <!-- Botón de descarga -->
+                <div style="margin-top:1rem;">
+                    <a class="btn btn-primary" href="./1 - NotaConceptual LeyOlimpia LATAM.pdf" target="_blank"
+                        rel="noopener">
+                        📄 Descargar PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="section">
+            <div class="container">
+                <h2>Contacto</h2>
+                <p>Puedes escribirnos un email al siguiente <br><strong>Correo:</strong> <a
+                        href="mailto:leyolimpia@gmail.com">leyolimpia@gmail.com</a></p>
             </div>
         </section>
     </main>
