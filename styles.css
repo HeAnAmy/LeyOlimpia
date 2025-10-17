@@ -361,3 +361,57 @@ h3 {
         justify-content: center;
     }
 }
+.docs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.doc-card {
+    background-color: #f4e8ff;
+    border: 2px solid #67429A;
+    border-radius: 12px;
+    padding: 1rem;
+    flex: 1 1 320px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+}
+
+.doc-card h3 {
+    color: #332462;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.doc-card object {
+    border: 2px solid #67429A;
+    border-radius: 8px;
+    width: 100%;
+    height: 400px;
+}
+
+.doc-card a.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #67429A;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color .25s ease;
+}
+
+.doc-card a.btn:hover {
+    background-color: #332462;
+}
+
+@media (max-width: 600px) {
+    .doc-card object {
+        height: 300px;
+    }
+}
