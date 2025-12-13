@@ -47,20 +47,23 @@
   <main>
     <!-- 1️⃣ HERO / INICIO -->
     <section id="inicio" class="hero">
+      <div class="hero-overlay"></div>
+    
       <div class="container hero-inner">
-
-        <figure class="hero-image">
-            <img src="./SRC/img/7.png" alt="Movimiento Ley Olimpia LATAM">
-            <figcaption>#LoVirtualEsReal</figcaption>
-        </figure>
-        <p class="lead">Tus derechos en la era digital. Movimiento feminista latinoamericano por la dignidad, la justicia y la seguridad digital de las mujeres.</p>
-
+        <p class="hero-tag">#LoVirtualEsReal</p>
+    
+        <p class="lead">
+          Tus derechos en la era digital. Movimiento feminista latinoamericano por la dignidad, la justicia y la seguridad digital
+          de las mujeres.
+        </p>
+    
         <div class="hero-actions">
           <a class="btn btn-primary" href="#que-es">Conocer más</a>
           <a class="btn btn-secondary" href="#documentos">Ver documentos</a>
         </div>
       </div>
     </section>
+
 
     <!-- 2️⃣ QUÉ ES -->
     <section id="que-es" class="section">
@@ -335,13 +338,13 @@
     
                     <!-- Vista previa del boletín en PDF -->
                     <div class="news-pdf">
-                        <iframe src="./BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf"
+                        <iframe src="./Docs/BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf"
                             width="100%" height="380" title="Boletín Colombia - Ley Olimpia">
                         </iframe>
                     </div>
     
                     <div class="news-actions">
-                        <a class="btn" href="./BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf"
+                        <a class="btn" href="./Docs/BP_ Se aprueba la Ley Olimpia en la Cámara de Representantes de Colombia.pdf"
                             target="_blank" rel="noopener">📄 Descargar boletín (PDF)</a>
                     </div>
                 </div>
@@ -351,56 +354,205 @@
 
 
 <section id="documentos" class="section alt">
-    <div class="container">
-        <h2>Documentos</h2>
-        <p>Consulta los materiales oficiales y recursos complementarios del movimiento Ley Olimpia LATAM.</p>
+  <div class="container">
+    <h2>Documentos</h2>
+    <p>Consulta los materiales oficiales y recursos complementarios del movimiento Ley Olimpia LATAM.</p>
 
-        <div class="docs-grid">
-            <!-- Documento 1 -->
-            <div class="doc-card">
-                <h3>Nota Conceptual Ley Olimpia LATAM</h3>
-                <object data="./1 - NotaConceptual LeyOlimpia LATAM.pdf#view=FitH" type="application/pdf" width="100%"
-                    height="400">
-                    <p>Tu navegador no puede mostrar la vista previa. <a
-                            href="./1 - NotaConceptual LeyOlimpia LATAM.pdf">Descargar PDF</a></p>
-                </object>
-                <a class="btn btn-primary" href="./1 - NotaConceptual LeyOlimpia LATAM.pdf" target="_blank">📄 Descargar
-                    PDF</a>
-            </div>
+    <div class="docs-grid">
 
-            <!-- Documento 3 -->
-            <div class="doc-card">
-                <h3>Material de Difusión — Jornada Nacional</h3>
-                <object data="./Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf#view=FitH"
-                    type="application/pdf" width="100%" height="400">
-                    <p>Tu navegador no puede mostrar la vista previa. <a
-                            href="./Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf">Descargar
-                            PDF</a></p>
-                </object>
-                <a class="btn btn-primary"
-                    href="./Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf"
-                    target="_blank">📄 Descargar PDF</a>
-            </div>
+      <!-- 1) Nota informativa -->
+      <article class="doc-card">
+        <h3>Nota informativa</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed"
+            src="./Docs/1 - NotaConceptual LeyOlimpia LATAM.pdf"
+            title="Nota informativa (PDF)" loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary"
+              href="./Docs/1 - NotaConceptual LeyOlimpia LATAM.pdf" target="_blank"
+              rel="noopener">
+              Abrir PDF
+            </a>
+          </div>
         </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary"
+            href="./Docs/1 - NotaConceptual LeyOlimpia LATAM.pdf" target="_blank"
+            rel="noopener">
+            📄 Abrir / Descargar
+          </a>
+        </div>
+      </article>
+
+      <!-- 2) Informe 2022 -->
+      <article class="doc-card">
+        <h3>Informe 2022</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed" src="./Docs/1 - INFORME VIOLENCIA DIGITAL (MÉXICO) DICIEMBRE 2022.pdf" title="Informe 2022 (PDF)" loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary" href="./Docs/1 - INFORME VIOLENCIA DIGITAL (MÉXICO) DICIEMBRE 2022.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary" href="./Docs/1 - INFORME VIOLENCIA DIGITAL (MÉXICO) DICIEMBRE 2022.pdf" target="_blank" rel="noopener">📄 Abrir / Descargar</a>
+        </div>
+      </article>
+
+      <!-- 3) Informe 2024 -->
+      <article class="doc-card">
+        <h3>Informe 2024</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed" src="./Docs/1 - fns-mexico-digitalsexualviolence-report-spanish.pdf" title="Informe 2024 (PDF)" loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary" href="./Docs/1 - fns-mexico-digitalsexualviolence-report-spanish.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary" href="./Docs/1 - fns-mexico-digitalsexualviolence-report-spanish.pdf" target="_blank" rel="noopener">📄 Abrir / Descargar</a>
+        </div>
+      </article>
+
+      <!-- 4) Manual -->
+      <article class="doc-card">
+        <h3>Manual</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed" src="./Docs/Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf" title="Manual (PDF)" loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary" href="./Docs/Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary" href="./Docs/Material de difusión - Jornada Nacional de prevención de VD y ciberacoso.pdf" target="_blank" rel="noopener">📄 Abrir /
+            Descargar</a>
+        </div>
+      </article>
+
+      <!-- 5) Ley Olimpia Bangkok -->
+      <article class="doc-card">
+        <h3>Ley Olimpia Bangkok</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed" src="./Docs/_Ley Olimpia participa en el Global Policy Dialogue en Bangkok, Thailandia.pdf" title="Ley Olimpia Bangkok (PDF)"
+            loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary" href="../Docs/_Ley Olimpia participa en el Global Policy Dialogue en Bangkok, Thailandia.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary" href="./Docs/_Ley Olimpia participa en el Global Policy Dialogue en Bangkok, Thailandia.pdf" target="_blank" rel="noopener">📄 Abrir /
+            Descargar</a>
+        </div>
+      </article>
+
+      <!-- 6) Ley Olimpia Interamericana -->
+      <article class="doc-card">
+        <h3>Ley Olimpia Interamericana</h3>
+
+        <div class="pdf-shell">
+          <iframe class="pdf-embed" src="./Docs/_Ley Olimpia hace historia_ se aprueba la Ley Modelo Interamericana contra la violencia digital de MESECVI inspirada en las Defensoras Digitales.pdf"
+            title="Ley Olimpia Interamericana (PDF)" loading="lazy">
+          </iframe>
+
+          <div class="pdf-fallback" aria-hidden="true">
+            <p>Vista previa no disponible en este dispositivo.</p>
+            <a class="btn btn-secondary" href="./Docs/_Ley Olimpia hace historia_ se aprueba la Ley Modelo Interamericana contra la violencia digital de MESECVI inspirada en las Defensoras Digitales.pdf" target="_blank" rel="noopener">Abrir
+              PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-primary" href="./Docs/_Ley Olimpia hace historia_ se aprueba la Ley Modelo Interamericana contra la violencia digital de MESECVI inspirada en las Defensoras Digitales.pdf" target="_blank" rel="noopener">📄 Abrir /
+            Descargar</a>
+        </div>
+      </article>
+
     </div>
+  </div>
 </section>
-
-
-
-
-    <!-- 8️⃣ CONTACTO -->
-    <section id="contacto" class="section">
-      <div class="container">
-        <h2>Contacto</h2>
-        <p>Correo: <a href="mailto:leyolimpia@gmail.com">leyolimpia@gmail.com</a></p>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>Hecho con respeto y sororidad · #LoVirtualEsReal</p>
-  </footer>
+<footer class="site-footer">
+  <div class="container footer-grid-3">
+
+    <!-- COLUMNA 1: LOGO -->
+    <div class="footer-col footer-col-brand">
+      <img src="./SRC/img/logo.png" alt="Ley Olimpia LATAM" class="footer-logo-large">
+    </div>
+
+    <!-- COLUMNA 2: CONTACTO + REDES -->
+    <div class="footer-col footer-col-center">
+      <h3 class="footer-title">Contacto</h3>
+
+      <ul class="footer-list">
+        <li>
+          <a class="footer-link" href="mailto:leyolimpia@gmail.com">
+            ✉️ leyolimpia@gmail.com
+          </a>
+        </li>
+        <li>
+          <a class="footer-link" href="mailto:comunicacion@leyolimpia.com.mx">
+            ✉️ comunicacion@leyolimpia.com.mx
+          </a>
+        </li>
+      </ul>
+
+      <h3 class="footer-title">Redes</h3>
+      <div class="social-row">
+        <a class="social-btn" href="https://www.instagram.com/leyolimpialatam/" target="_blank" rel="noopener">
+          Instagram
+        </a>
+        <a class="social-btn" href="https://www.facebook.com/FrenteNacionalParaLaSororidad" target="_blank"
+          rel="noopener">
+          Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- COLUMNA 3: QR -->
+    <div class="footer-col footer-col-qr">
+      <img src="./SRC/img/12.jpg" alt="QR Ayuda 24 horas" class="footer-qr">
+      <p class="footer-qr-text">Ayuda 24 horas</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>Hecho con respeto y sororidad</p>
+    <p>© <span id="year"></span> Ley Olimpia LATAM · #LoVirtualEsReal</p>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+
+
 
   <script src="./app.js"></script>
 </body>
