@@ -23,6 +23,7 @@ body {
     color: var(--gris-texto);
     background-color: var(--blanco);
     line-height: 1.6;
+    text-align: justify;
 }
 
 h1,
