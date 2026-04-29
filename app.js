@@ -118,3 +118,62 @@ if (lastUpdated) {
   const now = new Date();
   lastUpdated.textContent = now.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hotspots = document.querySelectorAll(".map-hotspot");
+  const tooltip = document.getElementById("mapTooltip");
+  const mapWrap = document.querySelector(".territorio-map-wrap");
+
+  if (!hotspots.length || !tooltip || !mapWrap) return;
+
+  function showTooltip(event, hotspot) {
+    const pais = hotspot.dataset.pais || "País";
+    const estado = hotspot.dataset.estado || "Sin dato";
+    const detalle = hotspot.dataset.detalle || "";
+
+    tooltip.innerHTML = `
+      <strong>${pais}</strong>
+      <div>${detalle}</div>
+      <div class="estado">Estado: ${estado}</div>
+    `;
+
+    const rect = mapWrap.getBoundingClientRect();
+    const x = event.clientX - rect.left + 16;
+    const y = event.clientY - rect.top - 16;
+
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+    tooltip.classList.add("is-visible");
+    tooltip.setAttribute("aria-hidden", "false");
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("is-visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  hotspots.forEach((hotspot) => {
+    hotspot.addEventListener("mousemove", (event) => {
+      showTooltip(event, hotspot);
+    });
+
+    hotspot.addEventListener("mouseenter", (event) => {
+      showTooltip(event, hotspot);
+    });
+
+    hotspot.addEventListener("mouseleave", hideTooltip);
+    hotspot.addEventListener("blur", hideTooltip);
+
+    hotspot.addEventListener("focus", () => {
+      const rect = hotspot.getBoundingClientRect();
+      const wrapRect = mapWrap.getBoundingClientRect();
+
+      const fakeEvent = {
+        clientX: rect.left - 6,
+        clientY: rect.top - wrapRect.top + wrapRect.top
+      };
+
+      showTooltip(fakeEvent, hotspot);
+    });
+  });
+});
