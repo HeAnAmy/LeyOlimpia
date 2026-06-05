@@ -177,3 +177,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ===========================
+// Hero carousel
+// ===========================
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots = document.querySelectorAll('.hero-dot');
+const heroPrev = document.getElementById('heroPrev');
+const heroNext = document.getElementById('heroNext');
+
+let currentHeroSlide = 0;
+
+function showHeroSlide(index) {
+  if (!heroSlides.length) return;
+
+  currentHeroSlide = (index + heroSlides.length) % heroSlides.length;
+
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentHeroSlide);
+  });
+
+  heroDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentHeroSlide);
+  });
+}
+
+heroPrev?.addEventListener('click', () => {
+  showHeroSlide(currentHeroSlide - 1);
+});
+
+heroNext?.addEventListener('click', () => {
+  showHeroSlide(currentHeroSlide + 1);
+});
+
+heroDots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    showHeroSlide(Number(dot.dataset.slide));
+  });
+});
+
+// Cambio automático cada 6 segundos
+setInterval(() => {
+  showHeroSlide(currentHeroSlide + 1);
+}, 6000);
